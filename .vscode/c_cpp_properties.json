@@ -12,7 +12,8 @@
                 "${workspaceFolder}/u8g2_lib",
                 "${workspaceFolder}/lvgl",
                 "${workspaceFolder}/lvgl/src",
-                "${workspaceFolder}/lvgl/port"
+                "${workspaceFolder}/lvgl/port",
+                "${workspaceFolder}/st7735"
 
 
             ],

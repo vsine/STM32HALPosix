@@ -10,7 +10,7 @@
  *      INCLUDES
  *********************/
 #include "lv_port_disp.h"
-
+#include "st7735.h"
 /*********************
  *      DEFINES
  *********************/
@@ -135,6 +135,9 @@ static void disp_init(void)
 {
     /*You code here*/
     ;
+    ST7735_Init();
+    ST7735_FillScreen(ST7735_BLACK);
+
 }
 
 /* Flush the content of the internal buffer the specific area on the display
@@ -146,14 +149,20 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 
     int32_t x;
     int32_t y;
+    ST7735_iSelect();
+    ST7735_iSetAddressWindow(area->x1, area->y1, area->x2, area->y2);
+    HAL_GPIO_WritePin(ST7735_DC_GPIO_Port, ST7735_DC_Pin, GPIO_PIN_SET);
     for(y = area->y1; y <= area->y2; y++) {
         for(x = area->x1; x <= area->x2; x++) {
             /* Put a pixel to the display. For example: */
             /* put_px(x, y, *color_p)*/
+            //uint8_t data[]={color_p->full>>8,color_p&0xFF};
+            
+            HAL_SPI_Transmit(&ST7735_SPI_PORT, (uint8_t*)(&color_p->full), 2, HAL_MAX_DELAY);
             color_p++;
         }
     }
-
+    ST7735_iUnselect();
     /* IMPORTANT!!!
      * Inform the graphics library that you are ready with the flushing*/
     lv_disp_flush_ready(disp_drv);
