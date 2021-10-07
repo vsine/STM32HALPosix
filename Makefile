@@ -72,7 +72,6 @@ Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c \
 lvgl/port/lv_port_disp.c \
-lvgl/port/lv_port_disp.c \
 lvgl/src/lv_core/lv_disp.c \
 lvgl/src/lv_core/lv_group.c \
 lvgl/src/lv_core/lv_indev.c \
@@ -246,6 +245,7 @@ C_INCLUDES =  \
 -Iu8g2_lib \
 -Ilvgl \
 -Ilvgl/src \
+-Ilvgl/port \
 -ICore/Inc \
 -IDrivers/STM32F4xx_HAL_Driver/Inc \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \

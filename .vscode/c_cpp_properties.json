@@ -11,7 +11,8 @@
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
                 "${workspaceFolder}/u8g2_lib",
                 "${workspaceFolder}/lvgl",
-                "${workspaceFolder}/lvgl/src"
+                "${workspaceFolder}/lvgl/src",
+                "${workspaceFolder}/lvgl/port"
 
 
             ],
