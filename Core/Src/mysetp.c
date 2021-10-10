@@ -12,7 +12,8 @@ void setp(){
     while (1){
         u8g2_ClearBuffer(&u8g2);
         u8g2_SetFont(&u8g2, u8g2_font_10x20_tr);
-        u8g2_DrawBitmap
+        u8g2_DrawStr(&u8g2,20,20,"ab");
+       // u8g2_DrawBitmap
         u8g2_SendBuffer(&u8g2);
 
     }
