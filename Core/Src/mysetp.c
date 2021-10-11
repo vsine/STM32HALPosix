@@ -8,41 +8,34 @@ FATFS *pfs;
 FIL fil;
 
 
-
+UINT br;
+BYTE frame[1024];
 void setp(){
-    HAL_Delay(1000);
-    u8g2Init(&u8g2);
-    HAL_Delay(1000);
-    u8g2_ClearBuffer(&u8g2);
-    u8g2_SetFont(&u8g2, u8g2_font_8x13_tr);
-
-    if(f_mount(&fs, "0:", 0) == FR_OK)
-    u8g2_DrawStr(&u8g2,20,10,"fs ok1!");
-    
     HAL_Delay(100);
-
-    //if(f_open(&fil, "first.txt", FA_OPEN_ALWAYS | FA_READ | FA_WRITE)== FR_OK)
-   // u8g2_DrawStr(&u8g2,20,30,"read ok!");
-   // else
-    char str[25];
-    itoa(f_open(&fil, "0:/first.txt", FA_READ), str, 10);
-    u8g2_DrawStr(&u8g2,20,30,str);
-    char *buff;
-    f_read(&fil,buff,4,4);
-    //f_write(&fil,"123",10,0);
-    //f_close(&fil);
-    //BYTE work[512];
-    
-    //itoa(f_mkfs("",0, 0, work, sizeof (work)), str, 10);
-    //u8g2_DrawStr(&u8g2,20,40,buff);
-
-
-    u8g2_SendBuffer(&u8g2);
+    u8g2Init(&u8g2);
+    u8g2_ClearBuffer(&u8g2);
+    f_mount(&fs, "0:", 0);
+    HAL_Delay(100);
+    f_open(&fil, "0:/badapple.txt", FA_READ);
     while (1){
-       HAL_Delay(100);
-
+    u8g2_ClearBuffer(&u8g2);   
+    f_read(&fil,frame,1024,&br);
+    for (int k = 0; k < 8; k++)
+        for (int x = 0; x < 128; x++)
+            for (int y = 0; y < 8; y++)
+                if(frame[k*128+x]&(0x01<<y))
+                    u8g2_DrawPixel(&u8g2,x,y+(k*8));
+    u8g2_SendBuffer(&u8g2);
+    HAL_Delay(1)
     }
 }
 
+
+
+
+
+void jinc(){
+
+}
 
 

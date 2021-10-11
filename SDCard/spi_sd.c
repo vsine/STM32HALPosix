@@ -31,7 +31,7 @@ int SD_sendcmd(uint8_t cmd,uint32_t arg,uint8_t crc){
   uint8_t retry;
 
   SD_CS(0);
-	HAL_Delay(20);
+	//HAL_Delay(20);
   SD_CS(1);
 	do{
 		retry=spi_readwrite(DFF);
@@ -137,7 +137,7 @@ uint8_t SD_ReceiveData(uint8_t *data, uint16_t len)
    do
    { 
       r1 = spi_readwrite(0xFF);	
-      HAL_Delay(100);
+      //HAL_Delay(100);
 		}while(r1 != 0xFE);	
   while(len--)
   {
