@@ -26,16 +26,12 @@ void setp(){
                 if(frame[k*128+x]&(0x01<<y))
                     u8g2_DrawPixel(&u8g2,x,y+(k*8));
     u8g2_SendBuffer(&u8g2);
-    HAL_Delay(1)
+    HAL_Delay(1);
     }
 }
 
 
 
 
-
-void jinc(){
-
-}
 
 

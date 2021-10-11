@@ -83,7 +83,7 @@ DSTATUS USER_initialize (
 {
   /* USER CODE BEGIN INIT */
     //Stat = STA_NOINIT;
-    HAL_Delay(1);
+    //HAL_Delay(1);
     uint8_t res;
 	res = SD_init();//SD_Initialize() 
 		 	if(res)//STM32 SPI的bug,在sd卡操作失败的时�?�如果不执行下面的语�?,可能导致SPI读写异常
@@ -219,7 +219,7 @@ DRESULT USER_ioctl (
 		    case CTRL_SYNC:
 						SD_CS(1);
 						do{
-							HAL_Delay(20);
+							//HAL_Delay(20);
 						}while(spi_readwrite(0xFF)!=0xFF);
 						res=RES_OK;
 						SD_CS(0);

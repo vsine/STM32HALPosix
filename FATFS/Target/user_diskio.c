@@ -219,7 +219,7 @@ DRESULT USER_ioctl (
 		    case CTRL_SYNC:
 						SD_CS(1);
 						do{
-							HAL_Delay(20);
+							//HAL_Delay(20);
 						}while(spi_readwrite(0xFF)!=0xFF);
 						res=RES_OK;
 						SD_CS(0);
