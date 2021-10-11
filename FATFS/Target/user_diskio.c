@@ -83,7 +83,17 @@ DSTATUS USER_initialize (
 {
   /* USER CODE BEGIN INIT */
     //Stat = STA_NOINIT;
-    return SD_disk_initialize(pdrv);
+    HAL_Delay(1);
+    uint8_t res;
+	res = SD_init();//SD_Initialize() 
+		 	if(res)//STM32 SPI的bug,在sd卡操作失败的时�?�如果不执行下面的语�?,可能导致SPI读写异常
+			{
+				SPI_setspeed(SPI_BAUDRATEPRESCALER_256);
+				spi_readwrite(0xff);//提供额外�?8个时�?
+				SPI_setspeed(SPI_BAUDRATEPRESCALER_2);
+			}
+	if(res)return  STA_NOINIT;
+	else return RES_OK; //初始化成�?
   /* USER CODE END INIT */
 }
 
@@ -98,7 +108,17 @@ DSTATUS USER_status (
 {
   /* USER CODE BEGIN STATUS */
     //Stat = STA_NOINIT;
-    return SD_disk_status(pdrv);
+   switch (pdrv)
+	{
+		case 0 :
+			return RES_OK;
+		case 1 :
+			return RES_OK;
+		case 2 :
+			return RES_OK;
+		default:
+			return STA_NOINIT;
+	}
   /* USER CODE END STATUS */
 }
 
@@ -118,7 +138,24 @@ DRESULT USER_read (
 )
 {
   /* USER CODE BEGIN READ */
-    return SD_disk_read(pdrv, buff, sector, count);
+uint8_t res;
+	if( !count )
+	{    
+		return RES_PARERR;  /* count不能等于0，否则返回参数错�? */
+	}
+	switch (pdrv)
+	{
+		case 0:
+		    res=SD_ReadDisk(buff,sector,count);	 
+				if(res == 0){
+					return RES_OK;
+				}else{
+					return RES_ERROR;
+				}                                               
+		default:
+			return RES_ERROR;
+	}
+
   /* USER CODE END READ */
 }
 
@@ -140,7 +177,22 @@ DRESULT USER_write (
 {
   /* USER CODE BEGIN WRITE */
   /* USER CODE HERE */
-    return SD_disk_write(pdrv, buff, sector, count);
+   uint8_t  res;
+	if( !count )
+	{    
+		return RES_PARERR;  /* count不能等于0，否则返回参数错�? */
+	}
+	switch (pdrv)
+	{
+		case 0:
+		    res=SD_WriteDisk((uint8_t *)buff,sector,count);
+				if(res == 0){
+					return RES_OK;
+				}else{
+					return RES_ERROR;
+				}                                                
+		default:return RES_ERROR;
+	}
   /* USER CODE END WRITE */
 }
 #endif /* _USE_WRITE == 1 */
@@ -161,7 +213,34 @@ DRESULT USER_ioctl (
 {
   /* USER CODE BEGIN IOCTL */
     //DRESULT res = RES_ERROR;
-    return SD_disk_ioctl(pdrv, cmd, buff);
+     DRESULT res;
+	 switch(cmd)
+	    {
+		    case CTRL_SYNC:
+						SD_CS(1);
+						do{
+							HAL_Delay(20);
+						}while(spi_readwrite(0xFF)!=0xFF);
+						res=RES_OK;
+						SD_CS(0);
+		        break;	 
+		    case GET_SECTOR_SIZE:
+		        *(WORD*)buff = 512;
+		        res = RES_OK;
+		        break;	 
+		    case GET_BLOCK_SIZE:
+		        *(WORD*)buff = 8;
+		        res = RES_OK;
+		        break;	 
+		    case GET_SECTOR_COUNT:
+		        *(DWORD*)buff = SD_GetSectorCount();
+		        res = RES_OK;
+		        break;
+		    default:
+		        res = RES_PARERR;
+		        break;
+	    }
+		return res;
   /* USER CODE END IOCTL */
 }
 #endif /* _USE_IOCTL == 1 */

@@ -6,7 +6,8 @@
         "cmsis_os.h": "c",
         "lv_mem.h": "c",
         "lv_port_disp.h": "c",
-        "lvgl.h": "c"
+        "lvgl.h": "c",
+        "diskio.h": "c"
     },
     "stm32-for-vscode.openOCDPath": false
 }

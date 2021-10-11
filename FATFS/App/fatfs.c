@@ -34,6 +34,7 @@ void MX_FATFS_Init(void)
 
   /* USER CODE BEGIN Init */
   /* additional user code for init */
+  HAL_Delay(1000);
   /* USER CODE END Init */
 }
 
