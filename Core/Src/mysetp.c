@@ -1,37 +1,44 @@
 #include "mysetp.h"
-#include "fatfs.h"
 #include "stdlib.h"
-u8g2_t u8g2;
 
-FATFS fs;
-FATFS *pfs;
-FIL fil;
-//FRESULT fr; 
 
-UINT br;
-BYTE frame[1024];
+static void lv_ui(void)
+{
+    lv_obj_t * btn = lv_btn_create(lv_scr_act(), NULL);
+    lv_obj_set_y(btn,50);
+    lv_obj_t * label=lv_label_create(btn, NULL);
+    lv_obj_t * bar=lv_bar_create(lv_scr_act(),NULL);
+    lv_obj_set_y(bar,10);
+    lv_bar_set_value(bar,70,LV_ANIM_ON);
+    lv_obj_set_width(bar,128);
+    lv_label_set_text(label,"深黑幻想");
+
+    // Hello world ! Trisuborn.
+    // lv_style_t style_btn;
+    
+    //lv_obj_set_style_local_bg_color(label, LV_OBJ_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_BLUE);
+
+
+    //lv_style_set_bg_opa(&style_btn, LV_STATE_DEFAULT, LV_OPA_TRANSP);
+    //lv_style_set_bg_opa(&style_btn, LV_OPA_50);
+    //lv_style_set_border_width(&style_btn, 2);
+    //lv_style_set_border_color(&style_btn, lv_color_black());
+
+}
+
+
 void setp(){
     HAL_Delay(100);
-    u8g2Init(&u8g2);
-    u8g2_ClearBuffer(&u8g2);
-    f_mount(&fs, "0:", 0);
-    HAL_Delay(100);
-    f_open(&fil, "0:/badapple.txt", FA_READ);
-    while (1){
-    u8g2_ClearBuffer(&u8g2);   
-    f_read(&fil,frame,1024,&br);
-    if(br==0){
-        f_close(&fil);
-        f_open(&fil, "0:/badapple.txt", FA_READ);
-    }
-    for (int k = 0; k < 8; k++)
-        for (int x = 0; x < 128; x++)
-            for (int y = 0; y < 8; y++)
-                if(frame[k*128+x]&(0x01<<y))
-                    u8g2_DrawPixel(&u8g2,x,y+(k*8));
-    u8g2_SendBuffer(&u8g2);
+    lv_init();
+    lv_port_disp_init();
+    lv_ui();
+    while(1) {
+		// 先调用 lv_tick_inc 再调用 lv_task_handler
+		lv_tick_inc(1);
+		lv_task_handler();
+		HAL_Delay(1);	// 可以省略，lvgl并不是OS的真正任务
+	}
 
-    }
 }
 
 

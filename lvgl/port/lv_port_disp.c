@@ -156,8 +156,8 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
         for(x = area->x1; x <= area->x2; x++) {
             /* Put a pixel to the display. For example: */
             /* put_px(x, y, *color_p)*/
-            //uint8_t data[] = { color_p->full >> 8, color_p->full & 0xFF };
-            HAL_SPI_Transmit(&ST7735_SPI_PORT, (uint8_t*)(&color_p->full), 2, HAL_MAX_DELAY);
+            uint8_t data[] = { color_p->full >> 8, color_p->full & 0xFF };//确保颜色顺序一致
+            HAL_SPI_Transmit(&ST7735_SPI_PORT, data, 2, HAL_MAX_DELAY);
             color_p++;
         }
     }

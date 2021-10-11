@@ -13,8 +13,8 @@
                 "${workspaceFolder}/lvgl",
                 "${workspaceFolder}/lvgl/src",
                 "${workspaceFolder}/lvgl/port",
-                "${workspaceFolder}/SDCard",
-                "${workspaceFolder}/st7735"
+                "${workspaceFolder}/SDCard"
+
 
 
             ],
