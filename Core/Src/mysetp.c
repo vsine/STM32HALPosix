@@ -12,7 +12,6 @@ static void lv_ui(void)
     lv_bar_set_value(bar,70,LV_ANIM_ON);
     lv_obj_set_width(bar,128);
     lv_label_set_text(label,"DDF");
-
     // Hello world ! Trisuborn.
     // lv_style_t style_btn;
     //lv_obj_set_style_local_bg_color(label, LV_OBJ_PART_MAIN, LV_STATE_DEFAULT, LV_COLOR_BLUE);
