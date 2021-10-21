@@ -10,6 +10,7 @@
                 "${workspaceFolder}/Drivers/CMSIS/Include",
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
                 "${workspaceFolder}/mylibary",
+                "${workspaceFolder}/mylibary/MPU6050",
                 "${workspaceFolder}/u8g2_lib",
                 "${workspaceFolder}/lvgl",
                 "${workspaceFolder}/lvgl/src",
@@ -26,7 +27,7 @@
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-arm",
-            "compilerPath": "C:\\Program Files (x86)\\GNU Tools ARM Embedded\\5.4 2016q3\\bin\\arm-none-eabi-gcc.exe",
+            "compilerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.10\\bin\\arm-none-eabi-gcc.exe",
             "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],

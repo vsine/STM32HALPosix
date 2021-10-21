@@ -11,7 +11,9 @@
         "lv_disp.h": "c",
         "lv_theme.h": "c",
         "lv_font.h": "c",
-        "lv_font_loader.h": "c"
+        "lv_font_loader.h": "c",
+        "mpu6050.h": "c",
+        "stm32f4xx_hal.h": "c"
     },
     "stm32-for-vscode.openOCDPath": false
 }
