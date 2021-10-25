@@ -93,7 +93,7 @@ int main(void)
   MX_SPI1_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
+  setp();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -104,7 +104,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-        setp();
+        loop();
     
   }
   /* USER CODE END 3 */
