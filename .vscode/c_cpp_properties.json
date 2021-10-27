@@ -11,10 +11,12 @@
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F4xx/Include",
                 "${workspaceFolder}/mylibary",
                 "${workspaceFolder}/mylibary/MPU6050",
+                "${workspaceFolder}/mylibary/kalman/",
                 "${workspaceFolder}/u8g2_lib",
                 "${workspaceFolder}/lvgl",
                 "${workspaceFolder}/lvgl/src",
                 "${workspaceFolder}/lvgl/port",
+                "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/arm-none-eabi/include",
                 "${workspaceFolder}/SDCard"
             ],
             "defines": [
