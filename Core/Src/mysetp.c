@@ -15,7 +15,7 @@ void setp(){
     //u8g2_DrawLine(&u8g2,20,20,40,20);
     u8g2_SendBuffer(&u8g2);
     MPU_Init();
-    scalar_kalman_init(&temp,1,1,0.001,0.1);
+    scalar_kalman_init(&temp,1,1,0.01,1);
     
 }
 
@@ -27,9 +27,7 @@ void loop(){
     u8g2_DrawStr(&u8g2,10,40,"klaman:");
     char str[10]; 
     char str1[10]; 
-    short rc;
-    MPU_Get_Accelerometer(&rc,&rc,&rc);
-    float i=rc;
+    float i=MPU_Get_Temperature();
     
     float f=scalar_kalman(&temp,i);
     gcvt(f,4,str);
