@@ -33,6 +33,8 @@ void scalar_kalman_init(scalar_kalman_t *kalman, float A, float C, float Q, floa
 	kalman->R = R;
 
 	kalman->x = 0;
+    //P取Q
 	kalman->P = Q;
+    
 	kalman->K = 1;
 }
