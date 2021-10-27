@@ -7,7 +7,7 @@ typedef struct {
 	float Ki;
 	float Kd;
 
-	/* Derivative low-pass filter time constant */
+	/* Derivative low-pass filter time constant 导数低通滤波时间常数(比T大一点)*/
 	float tau;
 
 	/* Output limits (输出界限)*/

@@ -85,8 +85,7 @@ float MPU_Get_Temperature(void)
 //  temp = (long)((35 + (raw / 340)) * 65536L);
   return temp/100.0f;
 }
-//得到陀螺仪值(原始值)
-//gx,gy,gz:陀螺仪x,y,z轴的原始读数(带符号)
+//角速度计(原始值)
 //返回值:0,成功
 //    其他,错误代码
 uint8_t MPU_Get_Gyroscope(short *gx,short *gy,short *gz)
@@ -101,8 +100,7 @@ uint8_t MPU_Get_Gyroscope(short *gx,short *gy,short *gz)
 	} 	
     return res;
 }
-//得到加速度值(原始值)
-//gx,gy,gz:陀螺仪x,y,z轴的原始读数(带符号)
+//加速度计(原始值)
 //返回值:0,成功
 //    其他,错误代码
 uint8_t MPU_Get_Accelerometer(short *ax,short *ay,short *az)
