@@ -10,11 +10,11 @@ typedef struct {
 	/* Derivative low-pass filter time constant */
 	float tau;
 
-	/* Output limits */
+	/* Output limits (输出界限)*/
 	float limMin;
 	float limMax;
 	
-	/* Integrator limits */
+	/* Integrator limits (积分界限)*/
 	float limMinInt;
 	float limMaxInt;
 
