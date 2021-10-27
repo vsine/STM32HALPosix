@@ -14,7 +14,8 @@
         "lv_font_loader.h": "c",
         "mpu6050.h": "c",
         "stm32f4xx_hal.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "pid.h": "c"
     },
     "stm32-for-vscode.openOCDPath": false,
     "C_Cpp.errorSquiggles": "Disabled"
