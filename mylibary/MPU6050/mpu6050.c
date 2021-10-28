@@ -12,7 +12,7 @@ uint8_t MPU_Init(void)
   MPU_Write_Byte(MPU_PWR_MGMT1_REG,0X00);	//唤醒MPU6050 
   MPU_Set_Gyro_Fsr(3);					//陀螺仪传感器,±2000dps
   MPU_Set_Accel_Fsr(0);					//加速度传感器,±2g
-  MPU_Set_Rate(500);						//设置采样率50Hz
+  MPU_Set_Rate(50);						//设置采样率50Hz
   MPU_Write_Byte(MPU_INT_EN_REG,0X00);	//关闭所有中断
   MPU_Write_Byte(MPU_USER_CTRL_REG,0X00);	//I2C主模式关闭
   MPU_Write_Byte(MPU_FIFO_EN_REG,0X00);	//关闭FIFO
@@ -22,7 +22,7 @@ uint8_t MPU_Init(void)
   {
     MPU_Write_Byte(MPU_PWR_MGMT1_REG,0X01);	//设置CLKSEL,PLL X轴为参考
     MPU_Write_Byte(MPU_PWR_MGMT2_REG,0X00);	//加速度与陀螺仪都工作
-    MPU_Set_Rate(50);						//设置采样率为50Hz
+    MPU_Set_Rate(100);						//设置采样率为50Hz
   }else return 1;
   return 0;
 }
@@ -122,7 +122,7 @@ uint8_t MPU_Write_Len(uint8_t reg,uint8_t len,uint8_t *buf)
 {
   extern I2C_HandleTypeDef hi2c1;
   HAL_I2C_Mem_Write(&hi2c1, MPU_WRITE, reg, I2C_MEMADD_SIZE_8BIT, buf, len, 0xfff);
-  HAL_Delay(100);
+  HAL_Delay(1);
   
   return 0;
 }
@@ -137,7 +137,7 @@ uint8_t MPU_Read_Len(uint8_t reg,uint8_t len,uint8_t *buf)
 { 
   extern I2C_HandleTypeDef hi2c1;
   HAL_I2C_Mem_Read(&hi2c1, MPU_READ, reg, I2C_MEMADD_SIZE_8BIT, buf, len, 0xfff);
-  HAL_Delay(100);
+  //HAL_Delay(1);
   
   return 0;	
 }
@@ -153,7 +153,7 @@ uint8_t MPU_Write_Byte(uint8_t reg,uint8_t data)
 
   W_Data = data;
   HAL_I2C_Mem_Write(&hi2c1, MPU_WRITE, reg, I2C_MEMADD_SIZE_8BIT, &W_Data, 1, 0xfff);
-  HAL_Delay(100);
+  HAL_Delay(1);
   
   return 0;
 }
@@ -166,7 +166,7 @@ uint8_t MPU_Read_Byte(uint8_t reg)
   unsigned char R_Data=0;
   
   HAL_I2C_Mem_Read(&hi2c1, MPU_READ, reg, I2C_MEMADD_SIZE_8BIT, &R_Data, 1, 0xfff);
-  HAL_Delay(100);
+  //HAL_Delay(1);
   
   return R_Data;		
 }
@@ -174,66 +174,3 @@ uint8_t MPU_Read_Byte(uint8_t reg)
 
 
 
-const int nValCnt = 7; //一次读取寄存器的数量
-const int nCalibTimes = 1000; //校准时读数的次数
-int calibData[7]; //校准数据
-float fRad2Deg = 57.295779513f; //将弧度转为角度的乘数
-
-
-void ReadAccGyr(int *pVals) {
-    short ax,ay,az;
-    short gx,gy,gz;
-
-    MPU_Get_Accelerometer(&ax,&ay,&az);
-    pVals[0]=ax;
-    pVals[1]=ay;
-    pVals[2]=az;
-    pVals[3]=MPU_Get_Temperature();
-    MPU_Get_Gyroscope(&gx,&gy,&gz);
-    pVals[4]=gx;
-    pVals[5]=gy;
-    pVals[6]=gz;
-}
-
-void Calibration()
-{
-    
-  float valSums[7] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0};
-  //先求和
-  for (int i = 0; i < nCalibTimes; ++i) {
-    int mpuVals[7];
-    ReadAccGyr(mpuVals);
-    for (int j = 0; j < nValCnt; ++j) {
-      valSums[j] += mpuVals[j];
-    }
-  }
-  //再求平均
-  for (int i = 0; i < nValCnt; ++i) {
-    calibData[i] = (int)(valSums[i] / nCalibTimes);
-  }
-  calibData[2] += 16384; //设芯片Z轴竖直向下，设定静态工作点。
-}
-//算得Roll角。算法见文档。
-float GetRoll(float *pRealVals, float fNorm) {
-  float fNormXZ = sqrt(pRealVals[0] * pRealVals[0] + pRealVals[2] * pRealVals[2]);
-  float fCos = fNormXZ / fNorm;
-  return acos(fCos) * fRad2Deg;
-}
-
-//算得Pitch角。算法见文档。
-float GetPitch(float *pRealVals, float fNorm) {
-  float fNormYZ = sqrt(pRealVals[1] * pRealVals[1] + pRealVals[2] * pRealVals[2]);
-  float fCos = fNormYZ / fNorm;
-  return acos(fCos) * fRad2Deg;
-}
-
-//对读数进行纠正，消除偏移，并转换为物理量。公式见文档。
-void Rectify(int *pReadout, float *pRealVals) {
-  for (int i = 0; i < 3; ++i) {
-    pRealVals[i] = (float)(pReadout[i] - calibData[i]) / 16384.0f;
-  }
-  pRealVals[3] = pReadout[3] / 340.0f + 36.53;
-  for (int i = 4; i < 7; ++i) {
-    pRealVals[i] = (float)(pReadout[i] - calibData[i]) / 131.0f;
-  }
-}

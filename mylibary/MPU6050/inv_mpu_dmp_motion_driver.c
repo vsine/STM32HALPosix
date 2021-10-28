@@ -24,8 +24,8 @@
 #include "dmpKey.h"
 #include "dmpmap.h"
 
-//定义目标板采用MSP430
-#define  MOTION_DRIVER_TARGET_MSP430
+
+
 
 /* The following functions must be defined for this platform:
  * i2c_write(unsigned char slave_addr, unsigned char reg_addr,
@@ -35,7 +35,7 @@
  * delay_ms(unsigned long num_ms)
  * get_ms(unsigned long *count)
  */
-#if defined MOTION_DRIVER_TARGET_MSP430
+
 //#include "msp430.h"
 //#include "msp430_clock.h"
 #define delay_ms        delay_ms
@@ -43,31 +43,7 @@
 #define log_i 		printf
 #define log_e  		printf
 
-#elif defined EMPL_TARGET_MSP430
-#include "msp430.h"
-#include "msp430_clock.h"
-#include "log.h"
-#define delay_ms    msp430_delay_ms
-#define get_ms      msp430_get_clock_ms
-#define log_i       MPL_LOGI
-#define log_e       MPL_LOGE
 
-#elif defined EMPL_TARGET_UC3L0
-/* Instead of using the standard TWI driver from the ASF library, we're using
- * a TWI driver that follows the slave address + register address convention.
- */
-#include "delay.h"
-#include "sysclk.h"
-#include "log.h"
-#include "uc3l0_clock.h"
-/* delay_ms is a function already defined in ASF. */
-#define get_ms  uc3l0_get_clock_ms
-#define log_i       MPL_LOGI
-#define log_e       MPL_LOGE
-
-#else
-#error  Gyro driver is missing the system layer implementations.
-#endif
 
 /* These defines are copied from dmpDefaultMPU6050.c in the general MPL
  * releases. These defines may change for each DMP image, so be sure to modify

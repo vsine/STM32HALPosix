@@ -20,7 +20,7 @@
 
 #ifndef _INV_MPU_H_
 #define _INV_MPU_H_
-#include "stm32f1xx_hal.h"
+#include "stm32f4xx_hal.h"
 
 
 //定义输出速度
