@@ -2966,7 +2966,7 @@ uint8_t mpu_dmp_init(void)
       return 6; 
     }
     else printf("set DMP successful \n");
-    res=dmp_set_fifo_rate(20);	//设置DMP输出速率(最大不超过200Hz)
+    res=dmp_set_fifo_rate(200);	//设置DMP输出速率(最大不超过200Hz)
     if(res)
     {
       return 7; 
