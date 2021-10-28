@@ -1,5 +1,5 @@
 #include "mpu6050.h" 
-
+#include <math.h>
 //初始化MPU6050
 //返回值:0,成功
 //    其他,错误代码
@@ -172,3 +172,68 @@ uint8_t MPU_Read_Byte(uint8_t reg)
 }
 
 
+
+
+const int nValCnt = 7; //一次读取寄存器的数量
+const int nCalibTimes = 1000; //校准时读数的次数
+int calibData[7]; //校准数据
+float fRad2Deg = 57.295779513f; //将弧度转为角度的乘数
+
+
+void ReadAccGyr(int *pVals) {
+    short ax,ay,az;
+    short gx,gy,gz;
+
+    MPU_Get_Accelerometer(&ax,&ay,&az);
+    pVals[0]=ax;
+    pVals[1]=ay;
+    pVals[2]=az;
+    pVals[3]=MPU_Get_Temperature();
+    MPU_Get_Gyroscope(&gx,&gy,&gz);
+    pVals[4]=gx;
+    pVals[5]=gy;
+    pVals[6]=gz;
+}
+
+void Calibration()
+{
+    
+  float valSums[7] = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0};
+  //先求和
+  for (int i = 0; i < nCalibTimes; ++i) {
+    int mpuVals[7];
+    ReadAccGyr(mpuVals);
+    for (int j = 0; j < nValCnt; ++j) {
+      valSums[j] += mpuVals[j];
+    }
+  }
+  //再求平均
+  for (int i = 0; i < nValCnt; ++i) {
+    calibData[i] = (int)(valSums[i] / nCalibTimes);
+  }
+  calibData[2] += 16384; //设芯片Z轴竖直向下，设定静态工作点。
+}
+//算得Roll角。算法见文档。
+float GetRoll(float *pRealVals, float fNorm) {
+  float fNormXZ = sqrt(pRealVals[0] * pRealVals[0] + pRealVals[2] * pRealVals[2]);
+  float fCos = fNormXZ / fNorm;
+  return acos(fCos) * fRad2Deg;
+}
+
+//算得Pitch角。算法见文档。
+float GetPitch(float *pRealVals, float fNorm) {
+  float fNormYZ = sqrt(pRealVals[1] * pRealVals[1] + pRealVals[2] * pRealVals[2]);
+  float fCos = fNormYZ / fNorm;
+  return acos(fCos) * fRad2Deg;
+}
+
+//对读数进行纠正，消除偏移，并转换为物理量。公式见文档。
+void Rectify(int *pReadout, float *pRealVals) {
+  for (int i = 0; i < 3; ++i) {
+    pRealVals[i] = (float)(pReadout[i] - calibData[i]) / 16384.0f;
+  }
+  pRealVals[3] = pReadout[3] / 340.0f + 36.53;
+  for (int i = 4; i < 7; ++i) {
+    pRealVals[i] = (float)(pReadout[i] - calibData[i]) / 131.0f;
+  }
+}

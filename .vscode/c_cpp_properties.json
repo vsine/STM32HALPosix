@@ -16,7 +16,7 @@
                 "${workspaceFolder}/lvgl",
                 "${workspaceFolder}/lvgl/src",
                 "${workspaceFolder}/lvgl/port",
-                "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/arm-none-eabi/include",
+                "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.07/arm-none-eabi/include",
                 "${workspaceFolder}/SDCard"
             ],
             "defines": [
@@ -26,7 +26,7 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-arm",
-            "compilerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.10\\bin\\arm-none-eabi-gcc.exe",
+            "compilerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.07\\bin\\arm-none-eabi-gcc.exe",
             "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],

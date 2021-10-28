@@ -15,7 +15,9 @@
         "mpu6050.h": "c",
         "stm32f4xx_hal.h": "c",
         "stdlib.h": "c",
-        "pid.h": "c"
+        "pid.h": "c",
+        "klaman.h": "c",
+        "cstdlib": "c"
     },
     "stm32-for-vscode.openOCDPath": false,
     "C_Cpp.errorSquiggles": "Disabled"
