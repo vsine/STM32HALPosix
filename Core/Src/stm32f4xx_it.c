@@ -35,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#include "mysetp.h"
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -191,7 +191,7 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-
+  pTick();
   /* USER CODE END SysTick_IRQn 1 */
 }
 

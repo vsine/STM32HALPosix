@@ -18,7 +18,7 @@ void setp(){
     u8g2_SendBuffer(&u8g2);
     
     mpu_dmp_init();
-    scalar_kalman_init(&temp,1,1,0.01,0.3);
+    scalar_kalman_init(&temp,1,1,0.001,0.2);
     HAL_Delay(100);
 
 }
@@ -53,3 +53,7 @@ void loop(){
 
 
 
+void pTick(){
+
+
+}
