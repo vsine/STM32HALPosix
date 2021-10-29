@@ -27,7 +27,7 @@ extern TIM_HandleTypeDef htim1;
 
 
 
-
+//平衡小车可以用速度环控制角度环，角度环控制电机，通过控制转速为0就可以平稳。这里只用了直立环
 
 
 scalar_kalman_t temp;
