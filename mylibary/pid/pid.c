@@ -11,9 +11,7 @@ void PIDController_Init(PIDController *pid) {
 	pid->out = 0.0f;
 
 }
-//@setpoint 目标值
-//@measurement 测量值
-//@out 输出控制信号
+
 float PIDController_Update(PIDController *pid, float setpoint, float measurement) {
 
 	/*
