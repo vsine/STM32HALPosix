@@ -16,7 +16,7 @@ float PIDController_Update(PIDController *pid, float setpoint, float measurement
 	/*
 	* State switch
 	*/
-	if (error*pid->prevError<0)
+	if (error * pid->prevError < 0)
 		pid->prevError=0;
 	/*
 	* Proportional
@@ -25,7 +25,7 @@ float PIDController_Update(PIDController *pid, float setpoint, float measurement
 	/*
 	* Integral
 	*/
-    pid->integrator = pid->integrator +  pid->Ki *   error ;
+    pid->integrator = pid->integrator + pid->Ki * error ;
 	/* Anti-wind-up via integrator clamping */
     if (pid->integrator > pid->limMaxInt)
         pid->integrator = pid->limMaxInt;
@@ -34,7 +34,7 @@ float PIDController_Update(PIDController *pid, float setpoint, float measurement
 	/*
 	* Derivative (band-limited differentiator)
 	*/
-    pid->differentiator = pid->Kd*((error-pid->prevError));
+    pid->differentiator = pid->Kd * ( error- pid->prevError );
 	/*
 	* Compute output and apply limits
 	*/

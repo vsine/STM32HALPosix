@@ -1,0 +1,3 @@
+mylibary/MPU6050/mpu6050.c \
+mylibary/MPU6050/inv_mpu_dmp_motion_driver.c \
+mylibary/MPU6050/inv_mpu.c \

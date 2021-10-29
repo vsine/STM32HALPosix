@@ -96,10 +96,7 @@ u8g2_lib/u8x8_string.c \
 u8g2_lib/u8x8_u8toa.c \
 u8g2_lib/u8x8_u16toa.c \
 mylibary/kalman/kalman.c \
-mylibary/MPU6050/inv_mpu_dmp_motion_driver.c \
-mylibary/MPU6050/inv_mpu.c \
 mylibary/pid/pid.c \
-mylibary/MPU6050/mpu6050.c \
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c
 
 
