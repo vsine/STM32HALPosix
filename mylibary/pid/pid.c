@@ -19,7 +19,12 @@ float PIDController_Update(PIDController *pid, float setpoint, float measurement
 	*/
     float error = setpoint - measurement;
 
-
+	/*
+	* State switch
+	*/
+	if (error*pid->prevError<0)
+		pid->prevError=0;
+	
 	/*
 	* Proportional
 	*/
