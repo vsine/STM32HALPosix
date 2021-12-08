@@ -16,18 +16,18 @@
                 "${workspaceFolder}/lvgl",
                 "${workspaceFolder}/lvgl/src",
                 "${workspaceFolder}/lvgl/port",
-                "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.07/arm-none-eabi/include",
+                // "C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.07/arm-none-eabi/include",
                 "${workspaceFolder}/SDCard"
             ],
             "defines": [
                 "DUSE_HAL_DRIVER",
                 "DSTM32F401xC"
             ],
-            "cStandard": "c17",
+            "cStandard": "c99",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-gcc-arm",
-            "compilerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.07\\bin\\arm-none-eabi-gcc.exe",
-            "configurationProvider": "ms-vscode.makefile-tools"
+            "intelliSenseMode": "clang-x64"
+            // "compilerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.07\\bin\\arm-none-eabi-gcc.exe",
+            // "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4
