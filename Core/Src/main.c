@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#include "mysetp.h"
+#include "mysetp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,7 +86,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  //setp();
+  setp();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -97,7 +97,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-        //loop();
+        loop();
         
       //  HAL_Delay(1);
         

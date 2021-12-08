@@ -80,6 +80,7 @@ u8g2_lib/u8x8_string.c \
 u8g2_lib/u8x8_u8toa.c \
 u8g2_lib/u8x8_u16toa.c \
 mylibary/kalman/kalman.c \
+Core/Src/mysetp.c \
 mylibary/pid/pid.c
 
 
