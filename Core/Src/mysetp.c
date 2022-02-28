@@ -9,8 +9,6 @@ void setp(){
 //HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
 //HAL_Delay(11);
 
-
-
 }
 void loop(){
 
