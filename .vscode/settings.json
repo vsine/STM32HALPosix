@@ -18,7 +18,10 @@
         "pid.h": "c",
         "klaman.h": "c",
         "cstdlib": "c",
-        "inv_mpu_dmp_motion_driver.h": "c"
+        "inv_mpu_dmp_motion_driver.h": "c",
+        "ff_gen_drv.h": "c",
+        "string.h": "c",
+        "spi_sd.h": "c"
     },
     "stm32-for-vscode.openOCDPath": false,
     "C_Cpp.errorSquiggles": "Disabled"
