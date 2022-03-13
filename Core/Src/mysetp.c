@@ -1,5 +1,5 @@
 #include "mysetp.h"
-//#include "stdlib.h"
+#include "stdlib.h"
 
 
 //extern TIM_HandleTypeDef htim1;
@@ -12,8 +12,8 @@ void setp(){
 }
 void loop(){
 
+ gcvt();
 
- 
 }
 
 
