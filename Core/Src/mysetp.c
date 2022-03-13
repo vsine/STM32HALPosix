@@ -15,7 +15,6 @@ void loop(){
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 }
 
-
 //float GetDistance(){}
 
 void pTick(){
