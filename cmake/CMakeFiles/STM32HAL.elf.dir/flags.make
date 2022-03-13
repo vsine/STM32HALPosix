@@ -7,11 +7,11 @@ ASM_DEFINES = -DSTM32F411xE -DUSE_HAL_DRIVER
 
 ASM_INCLUDES = -ID:/Works/Projects/STM32HALPosix/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Include -ID:/Works/Projects/STM32HALPosix/Core/Inc
 
-ASM_FLAGS = -O3 -DNDEBUG -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -x assembler-with-cpp -Ofast
+ASM_FLAGS = -O3 -DNDEBUG -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -x assembler-with-cpp -Ofast
 
 C_DEFINES = -DSTM32F411xE -DUSE_HAL_DRIVER
 
 C_INCLUDES = -ID:/Works/Projects/STM32HALPosix/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Include -ID:/Works/Projects/STM32HALPosix/Core/Inc
 
-C_FLAGS = -O3 -DNDEBUG -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Ofast -std=gnu11
+C_FLAGS = -O3 -DNDEBUG -mfloat-abi=hard -mfpu=fpv4-sp-d16 -mcpu=cortex-m4 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Ofast -std=gnu11
 

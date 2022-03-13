@@ -412,7 +412,7 @@ STM32HAL.elf: CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32
 STM32HAL.elf: CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj
 STM32HAL.elf: CMakeFiles/STM32HAL.elf.dir/build.make
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:/Works/Projects/STM32HALPosix/cmake/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking C executable STM32HAL.elf"
-	"C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe" -O3 -DNDEBUG -Wl,-gc-sections,--print-memory-usage,-Map=D:/Works/Projects/STM32HALPosix/cmake/STM32HAL.map,--cref -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -specs=nano.specs -T D:/Works/Projects/STM32HALPosix/STM32F411CEUx_FLASH.ld $(STM32HAL_elf_OBJECTS) $(STM32HAL_elf_EXTERNAL_OBJECTS) -o STM32HAL.elf 
+	"C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe" -O3 -DNDEBUG -mfloat-abi=hard -mfpu=fpv4-sp-d16 -Wl,-gc-sections,--print-memory-usage,-Map=D:/Works/Projects/STM32HALPosix/cmake/STM32HAL.map,--cref -mcpu=cortex-m4 -mthumb -mthumb-interwork -T D:/Works/Projects/STM32HALPosix/STM32F411CEUx_FLASH.ld -lc -lm -lnosys $(STM32HAL_elf_OBJECTS) $(STM32HAL_elf_EXTERNAL_OBJECTS) -o STM32HAL.elf 
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building D:/Works/Projects/STM32HALPosix/cmake/STM32HAL.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building D:/Works/Projects/STM32HALPosix/cmake/STM32HAL.bin"
 	arm-none-eabi-objcopy -Oihex D:/Works/Projects/STM32HALPosix/cmake/STM32HAL.elf D:/Works/Projects/STM32HALPosix/cmake/STM32HAL.hex
