@@ -52,8 +52,8 @@ endif ()
 include_directories(Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F4xx/Include Drivers/CMSIS/Include Core/Inc)
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F411xE)
-#CubeMX设置仅拷贝需要的
-file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/STM32F4xx_HAL_Driver/*.*" "Core/*.*")
+#CubeMX设置仅拷贝需要的库
+file(GLOB_RECURSE SOURCES "startup/*.s" "Drivers/STM32F4xx_HAL_Driver/*.c" "Core/*.*")
 
 
 
@@ -61,7 +61,7 @@ file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/STM32F4xx_HAL_Driver/*.*" "Core
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F411CEUx_FLASH.ld)
 
 
-add_link_options(-Wl,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map)
+add_link_options(-Wl,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map,--cref)
 add_link_options(-mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -specs=nano.specs)
 add_link_options(-T ${LINKER_SCRIPT})
 
