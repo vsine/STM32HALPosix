@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "D:/Works/Projects/STM32HALPosix/startup/startup_stm32f411xe.s" "D:/Works/Projects/STM32HALPosix/cmake/CMakeFiles/STM32HAL.elf.dir/startup/startup_stm32f411xe.s.obj"
+  "D:/Works/Projects/STM32HALPosix/startup_stm32f411xe.s" "D:/Works/Projects/STM32HALPosix/cmake/CMakeFiles/STM32HAL.elf.dir/startup_stm32f411xe.s.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 

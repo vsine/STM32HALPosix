@@ -1,2 +1,2 @@
-make -j4
-/mnt/c/Windows/System32/cmd.exe /C ST-LINK_CLI -c SWD -P build/401CCU-Demo.hex -Rst
+cmake --build d:/Works/Projects/STM32HALPosix/cmake --config Release --target all -j 14 --
+ST-LINK_CLI -c SWD -P cmake/STM32HAL.hex -Rst

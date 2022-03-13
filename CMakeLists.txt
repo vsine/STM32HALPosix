@@ -53,8 +53,8 @@ include_directories(Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_D
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F411xE)
 #CubeMX设置仅拷贝需要的库
-file(GLOB_RECURSE SOURCES "startup/*.s" "Drivers/STM32F4xx_HAL_Driver/*.c" "Core/*.*")
-
+file(GLOB_RECURSE SOURCES "Drivers/STM32F4xx_HAL_Driver/*.c" "Core/*.*")
+list(INSERT SOURCES 0 ${CMAKE_SOURCE_DIR}/startup_stm32f411xe.s)
 
 
 

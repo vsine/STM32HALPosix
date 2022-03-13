@@ -1,6 +1,11 @@
 [
 {
   "directory": "D:/Works/Projects/STM32HALPosix/cmake",
+  "command": "\"C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe\" -x assembler-with-cpp -DSTM32F411xE -DUSE_HAL_DRIVER -ID:/Works/Projects/STM32HALPosix/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Include -ID:/Works/Projects/STM32HALPosix/Core/Inc -O3 -DNDEBUG -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -x assembler-with-cpp -Ofast -o CMakeFiles/STM32HAL.elf.dir/startup_stm32f411xe.s.obj -c D:/Works/Projects/STM32HALPosix/startup_stm32f411xe.s",
+  "file": "D:/Works/Projects/STM32HALPosix/startup_stm32f411xe.s"
+},
+{
+  "directory": "D:/Works/Projects/STM32HALPosix/cmake",
   "command": "\"C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe\" -DSTM32F411xE -DUSE_HAL_DRIVER -ID:/Works/Projects/STM32HALPosix/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Include -ID:/Works/Projects/STM32HALPosix/Core/Inc -O3 -DNDEBUG -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Ofast -std=gnu11 -o CMakeFiles/STM32HAL.elf.dir/Core/Src/main.c.obj -c D:/Works/Projects/STM32HALPosix/Core/Src/main.c",
   "file": "D:/Works/Projects/STM32HALPosix/Core/Src/main.c"
 },
@@ -98,10 +103,5 @@
   "directory": "D:/Works/Projects/STM32HALPosix/cmake",
   "command": "\"C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe\" -DSTM32F411xE -DUSE_HAL_DRIVER -ID:/Works/Projects/STM32HALPosix/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Include -ID:/Works/Projects/STM32HALPosix/Core/Inc -O3 -DNDEBUG -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Ofast -std=gnu11 -o CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj -c D:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c",
   "file": "D:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c"
-},
-{
-  "directory": "D:/Works/Projects/STM32HALPosix/cmake",
-  "command": "\"C:/Program Files (x86)/GNU Arm Embedded Toolchain/10 2021.10/bin/arm-none-eabi-gcc.exe\" -x assembler-with-cpp -DSTM32F411xE -DUSE_HAL_DRIVER -ID:/Works/Projects/STM32HALPosix/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc -ID:/Works/Projects/STM32HALPosix/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Device/ST/STM32F4xx/Include -ID:/Works/Projects/STM32HALPosix/Drivers/CMSIS/Include -ID:/Works/Projects/STM32HALPosix/Core/Inc -O3 -DNDEBUG -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -x assembler-with-cpp -Ofast -o CMakeFiles/STM32HAL.elf.dir/startup/startup_stm32f411xe.s.obj -c D:/Works/Projects/STM32HALPosix/startup/startup_stm32f411xe.s",
-  "file": "D:/Works/Projects/STM32HALPosix/startup/startup_stm32f411xe.s"
 }
 ]

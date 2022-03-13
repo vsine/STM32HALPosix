@@ -39,7 +39,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c.obj.d"
   "CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj"
   "CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.obj.d"
-  "CMakeFiles/STM32HAL.elf.dir/startup/startup_stm32f411xe.s.obj"
+  "CMakeFiles/STM32HAL.elf.dir/startup_stm32f411xe.s.obj"
   "STM32HAL.elf"
   "STM32HAL.elf.manifest"
   "STM32HAL.elf.pdb"

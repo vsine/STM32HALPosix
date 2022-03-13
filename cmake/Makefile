@@ -609,13 +609,13 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/STM32HAL.elf.dir/build.make CMakeFiles/STM32HAL.elf.dir/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.s
 .PHONY : Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c.s
 
-startup/startup_stm32f411xe.obj: startup/startup_stm32f411xe.s.obj
-.PHONY : startup/startup_stm32f411xe.obj
+startup_stm32f411xe.obj: startup_stm32f411xe.s.obj
+.PHONY : startup_stm32f411xe.obj
 
 # target to build an object file
-startup/startup_stm32f411xe.s.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/STM32HAL.elf.dir/build.make CMakeFiles/STM32HAL.elf.dir/startup/startup_stm32f411xe.s.obj
-.PHONY : startup/startup_stm32f411xe.s.obj
+startup_stm32f411xe.s.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/STM32HAL.elf.dir/build.make CMakeFiles/STM32HAL.elf.dir/startup_stm32f411xe.s.obj
+.PHONY : startup_stm32f411xe.s.obj
 
 # Help Target
 help:
@@ -686,7 +686,7 @@ help:
 	@echo "... Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.obj"
 	@echo "... Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.i"
 	@echo "... Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.s"
-	@echo "... startup/startup_stm32f411xe.obj"
+	@echo "... startup_stm32f411xe.obj"
 .PHONY : help
 
 
