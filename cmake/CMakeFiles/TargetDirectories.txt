@@ -1,0 +1,3 @@
+D:/Works/Projects/STM32HALPosix/cmake/CMakeFiles/STM32HAL.elf.dir
+D:/Works/Projects/STM32HALPosix/cmake/CMakeFiles/edit_cache.dir
+D:/Works/Projects/STM32HALPosix/cmake/CMakeFiles/rebuild_cache.dir
