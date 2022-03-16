@@ -11,12 +11,11 @@ void setp(){
 
 }
 void loop(){
-    HAL_Delay(200);
+    HAL_Delay(300);
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    
 }
-
 //float GetDistance(){}
-
 void pTick(){
 
    
